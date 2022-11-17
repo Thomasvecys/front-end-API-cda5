@@ -1,0 +1,26 @@
+<form action="" method="post">
+  <label for="tache">Nom de l'utilisateur</label>
+  <input type="text" name="tache" [(ngModel)]="utilisateur.username">
+  <br>
+  <label for="password">Mot de passe de l'utilisateur</label>
+  <input type="password" name="password"  [(ngModel)]="utilisateur.password">
+  <br>
+
+  <br>
+
+  <select name="role" [(ngModel)]="utilisateur.role">
+    <option value="admin" >Administrateur</option>
+    <option value="employe">Employé</option>
+    <option value="visiteurs">Visiteurs</option>
+  </select>
+  <button (click)="createUtilisateur()">Validez</button>
+</form>
+
+<ul>
+  <li *ngFor="let utilisateur of utilisateurListe" >
+    {{utilisateur.username}}
+    {{utilisateur.role}}
+    {{utilisateur.id}}
+  </li>
+
+</ul>

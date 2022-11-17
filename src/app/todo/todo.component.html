@@ -1,0 +1,25 @@
+<form action="" method="post">
+
+  <label for="tache">Nom de la tache</label>
+  <input type="text" name="tache" [(ngModel)]="tache.description">
+  <br>
+  <label for="duree">Durée de la tache en minute</label>
+  <input type="number" name="duree" [(ngModel)]="tache.duree">
+  <br>
+  <label for="role">Tache accomplis ?</label>
+  <input type="checkbox" name="finit" [(ngModel)]="tache.finit">
+  <br>
+  <select name="role" [(ngModel)]="tache.user.id"  name="id">
+    <option *ngFor="let utilisateur of utilisateurListe" value="{{utilisateur.id}}" >
+      {{utilisateur.username}}
+    </option>
+  </select>
+  <button (click)="creerTache()">Validez</button>
+</form>
+
+<ul>
+  <li *ngFor="let utilisateur of utilisateurListe" >
+    {{utilisateur.username}}
+  </li>
+
+</ul>

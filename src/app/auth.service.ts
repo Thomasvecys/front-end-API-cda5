@@ -13,7 +13,7 @@ import { Utilisateur } from './utilisateur';
 })
 export class AuthService {
 
-  API_URL: string = 'http://192.168.1.26:8080';
+  API_URL: string = 'http://192.168.1.26:8080/Planning';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
 
@@ -23,7 +23,7 @@ export class AuthService {
 
 
   login(user: Utilisateur) {
-    return this.httpClient.post<any>(`${this.API_URL}/users/`, user)
+    return this.httpClient.post<any>(`${this.API_URL}/rest/token`, user)
       .subscribe((res: any) => {
         localStorage.setItem('access_token', res.token)
         this.getUserProfile(res._id).subscribe((res) => {
